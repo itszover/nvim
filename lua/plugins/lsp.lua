@@ -11,7 +11,14 @@ return {
 		},
 		config = function()
 			local capabilities = require('blink.cmp').get_lsp_capabilities()
-			vim.lsp.config().lua_ls.setup { capabilities = capabilities }
+			local servers = {
+				"lua_ls",
+			}
+
+			for _, name in ipairs(servers) do
+				vim.lsp.config(name, { capabilities = capabilities })
+				vim.lsp.enable(name)
+			end
 		end
 	}
 }
