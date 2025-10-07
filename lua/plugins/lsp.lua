@@ -10,8 +10,8 @@ return {
 			},
 		},
 		config = function()
-			local capabilites = require('blink.cmp').get_lsp_capabilities()
-			require("lspconfig").lua_ls.setup { capabilites = capabilites }
+			local capabilities = require('blink.cmp').get_lsp_capabilities()
+			vim.lsp.config().lua_ls.setup { capabilities = capabilities }
 		end
 	}
 }
